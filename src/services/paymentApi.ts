@@ -1,4 +1,4 @@
-const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000'
+const apiUrl = import.meta.env.VITE_API_URL || (import.meta.env.DEV ? 'http://localhost:8000' : '')
 
 export async function createPaymentIntent(token: string, amountInRupees: number) {
   const response = await fetch(`${apiUrl}/api/payments/create-intent`, {
